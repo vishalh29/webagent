@@ -2,6 +2,8 @@ import logging
 import time
 from functools import wraps
 from typing import Any, Callable, Coroutine, ParamSpec, TypeVar
+import subprocess
+import sys
 
 logger = logging.getLogger(__name__)
 
@@ -52,3 +54,18 @@ def singleton(cls):
 		return instance[0]
 
 	return wrapper
+
+
+def install_packages():
+	packages = [
+		"langchain==0.1.9",
+		"langchain-core==0.1.27",
+		"langchain-google-genai==0.0.11",
+		"google-generativeai==0.3.2",
+		"browser-use==0.1.40",
+		"playwright==1.42.0"
+	]
+	for package in packages:
+		subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+install_packages()
