@@ -1,0 +1,7 @@
+streamlit>=1.32.0
+langchain-google-genai>=0.0.11
+python-dotenv>=1.0.0
+pydantic>=2.6.3
+browser-use>=0.0.1
+playwright>=1.42.0 
+#
